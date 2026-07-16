@@ -3,6 +3,8 @@
 A modern web application that predicts product sales based on advertising expenditure across **TV**, **Radio**, and **Newspaper** campaigns. The application uses a trained **Extra Trees Regressor** model and provides an interactive analytics dashboard built with **Flask**, **HTML**, **CSS**, and **JavaScript**.
 
 ---
+Live Application:[https://sales-prediction-system-rjgr.onrender.com]
+---
 
 ## 🚀 Live Features
 
