@@ -1,0 +1,1465 @@
+/*==================================================
+RESPONSIVE CSS
+Sales Prediction Dashboard
+==================================================*/
+
+
+/*==================================================
+1400px
+==================================================*/
+
+@media screen and (max-width:1400px){
+
+    section{
+
+        width:94%;
+
+    }
+
+}
+
+
+/*==================================================
+1200px
+==================================================*/
+
+@media screen and (max-width:1200px){
+
+    section{
+
+        width:95%;
+
+    }
+
+    .navbar{
+
+        padding:0 25px;
+
+        gap:20px;
+
+    }
+
+    .search-box{
+
+        max-width:320px;
+
+    }
+
+    .dashboard{
+
+        grid-template-columns:1fr;
+
+        gap:30px;
+
+    }
+
+    .prediction-card{
+
+        width:100%;
+
+    }
+
+    .summary-box{
+
+        margin-top:25px;
+
+    }
+
+    .kpi-section{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:20px;
+
+    }
+
+    .model-grid{
+
+        grid-template-columns:repeat(2,1fr);
+
+    }
+
+}
+
+
+/*==================================================
+992px
+TABLET
+==================================================*/
+
+@media screen and (max-width:992px){
+
+    /*------------------------
+    NAVBAR
+    ------------------------*/
+
+    .navbar{
+
+        height:auto;
+
+        padding:18px 20px;
+
+        display:grid;
+
+        grid-template-columns:1fr auto;
+
+        grid-template-areas:
+
+            "logo right"
+
+            "search search";
+
+        row-gap:18px;
+
+    }
+
+    .logo{
+
+        grid-area:logo;
+
+        font-size:1.3rem;
+
+    }
+
+    .nav-right{
+
+        grid-area:right;
+
+        margin-left:0;
+
+        gap:12px;
+
+    }
+
+    .search-box{
+
+        grid-area:search;
+
+        width:100%;
+
+        max-width:none;
+
+    }
+
+    .model-badge{
+
+        padding:9px 16px;
+
+        font-size:.85rem;
+
+    }
+
+    /*------------------------
+    HERO
+    ------------------------*/
+
+    .hero{
+
+        padding:45px 0 30px;
+
+    }
+
+    .hero h1{
+
+        font-size:2.2rem;
+
+    }
+
+    .hero p{
+
+        max-width:100%;
+
+        line-height:1.8;
+
+    }
+
+    /*------------------------
+    KPI
+    ------------------------*/
+
+    .kpi-section{
+
+        grid-template-columns:repeat(2,1fr);
+
+        gap:18px;
+
+    }
+
+    .kpi-card{
+
+        padding:22px;
+
+    }
+
+    .kpi-card h2{
+
+        font-size:1.35rem;
+
+    }
+
+    /*------------------------
+    CARD
+    ------------------------*/
+
+    .card{
+
+        padding:25px;
+
+    }
+
+    .card-header{
+
+        margin-bottom:22px;
+
+    }
+
+    /*------------------------
+    ANALYTICS
+    ------------------------*/
+
+    .progress-item{
+
+        grid-template-columns:150px 1fr 60px;
+
+        gap:15px;
+
+    }
+
+}
+/*==================================================
+768px
+MOBILE DASHBOARD
+==================================================*/
+
+@media screen and (max-width:768px){
+
+    body{
+
+        overflow-x:hidden;
+
+    }
+
+    section{
+
+        width:94%;
+
+    }
+
+    /*==========================
+    NAVBAR
+    ==========================*/
+
+    .navbar{
+
+        display:flex;
+
+        justify-content:space-between;
+
+        align-items:center;
+
+        flex-wrap:wrap;
+
+        padding:15px 18px;
+
+        gap:15px;
+
+    }
+
+    .logo{
+
+        font-size:1.2rem;
+
+    }
+
+    .logo i{
+
+        font-size:1.5rem;
+
+    }
+
+    .search-box{
+
+        width:100%;
+
+        max-width:100%;
+
+        height:48px;
+
+        order:3;
+
+    }
+
+    .model-badge{
+
+        display:none;
+
+    }
+
+    .nav-right{
+
+        margin-left:auto;
+
+        gap:12px;
+
+    }
+
+    .notification{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    .avatar{
+
+        width:42px;
+
+        height:42px;
+
+    }
+
+    /*==========================
+    HERO
+    ==========================*/
+
+    .hero{
+
+        padding:30px 0 20px;
+
+        text-align:left;
+
+    }
+
+    .hero h1{
+
+        font-size:1.9rem;
+
+        line-height:1.35;
+
+    }
+
+    .hero p{
+
+        margin-top:10px;
+
+        font-size:.95rem;
+
+        line-height:1.7;
+
+    }
+
+    /*==========================
+    KPI SECTION
+    ==========================*/
+
+    .kpi-section{
+
+        display:flex;
+
+        gap:18px;
+
+        overflow-x:auto;
+
+        scroll-snap-type:x mandatory;
+
+        padding-bottom:10px;
+
+        margin-bottom:30px;
+
+        scrollbar-width:none;
+
+    }
+
+    .kpi-section::-webkit-scrollbar{
+
+        display:none;
+
+    }
+
+    .kpi-card{
+
+        min-width:250px;
+
+        flex-shrink:0;
+
+        scroll-snap-align:start;
+
+        padding:22px;
+
+    }
+
+    .kpi-card .icon{
+
+        width:60px;
+
+        height:60px;
+
+        font-size:1.3rem;
+
+    }
+
+    /*==========================
+    DASHBOARD
+    ==========================*/
+
+    .dashboard{
+
+        display:flex;
+
+        flex-direction:column;
+
+        gap:25px;
+
+    }
+
+    .card{
+
+        padding:22px;
+
+        border-radius:18px;
+
+    }
+
+    .card-header{
+
+        margin-bottom:20px;
+
+    }
+
+    .card-header h2{
+
+        font-size:1.25rem;
+
+    }
+
+    .card-header p{
+
+        font-size:.9rem;
+
+    }
+
+    /*==========================
+    FORM
+    ==========================*/
+
+    .prediction-form-card form{
+
+        gap:18px;
+
+    }
+
+    .input-group{
+
+        margin-bottom:5px;
+
+    }
+
+    .input-group label{
+
+        font-size:.95rem;
+
+        margin-bottom:8px;
+
+    }
+
+    .input-group input{
+
+        height:58px;
+
+        border-radius:14px;
+
+        font-size:1rem;
+
+    }
+
+    .predict-btn{
+
+        width:100%;
+
+        height:58px;
+
+        font-size:1rem;
+
+        border-radius:15px;
+
+        margin-top:10px;
+
+    }
+
+    /*==========================
+    RESULT
+    ==========================*/
+
+    .prediction-card{
+
+        text-align:center;
+
+    }
+
+    .prediction-result{
+
+        font-size:3rem;
+
+        margin:20px 0;
+
+    }
+
+    .prediction-placeholder{
+
+        padding:25px 0;
+
+    }
+
+    .prediction-placeholder i{
+
+        font-size:3rem;
+
+    }
+
+    .status{
+
+        width:100%;
+
+        justify-content:center;
+
+    }
+
+    .recommendation{
+
+        margin-top:15px;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+        text-align:left;
+
+    }
+
+    /*==========================
+    SUMMARY
+    ==========================*/
+
+    .summary-box{
+
+        margin-top:25px;
+
+        padding-top:18px;
+
+    }
+
+    .summary-item{
+
+        padding:14px 0;
+
+    }
+
+    /*==========================
+    ANALYTICS
+    ==========================*/
+
+    .analytics-card{
+
+        padding:22px;
+
+    }
+
+    .progress-item{
+
+        display:flex;
+
+        flex-direction:column;
+
+        align-items:flex-start;
+
+        gap:10px;
+
+        margin-bottom:25px;
+
+    }
+
+    .progress-item span{
+
+        font-weight:600;
+
+    }
+
+    .progress{
+
+        width:100%;
+
+        height:10px;
+
+    }
+
+    .progress-item strong{
+
+        width:100%;
+
+        text-align:right;
+
+    }
+
+    .confidence{
+
+        flex-direction:column;
+
+        gap:10px;
+
+        text-align:center;
+
+    }
+
+    /*==========================
+    MODEL
+    ==========================*/
+
+    .model-grid{
+
+        grid-template-columns:1fr;
+
+        gap:15px;
+
+    }
+
+    .model-grid div{
+
+        padding:20px;
+
+    }
+
+    /*==========================
+    FOOTER
+    ==========================*/
+
+    footer{
+
+        padding:25px 15px;
+
+        text-align:center;
+
+        line-height:1.7;
+
+    }
+
+}
+/*==================================================
+576px
+SMALL PHONES
+==================================================*/
+
+@media screen and (max-width:576px){
+
+    section{
+
+        width:92%;
+
+    }
+
+    /*==========================
+    NAVBAR
+    ==========================*/
+
+    .navbar{
+
+        padding:14px 15px;
+
+        gap:12px;
+
+    }
+
+    .logo{
+
+        font-size:1.1rem;
+
+        gap:10px;
+
+    }
+
+    .logo i{
+
+        font-size:1.4rem;
+
+    }
+
+    .search-box{
+
+        display:none;
+
+    }
+
+    .notification{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:.9rem;
+
+    }
+
+    .avatar{
+
+        width:40px;
+
+        height:40px;
+
+        font-size:.85rem;
+
+    }
+
+    /*==========================
+    HERO
+    ==========================*/
+
+    .hero{
+
+        padding:25px 0 18px;
+
+        text-align:center;
+
+    }
+
+    .hero h1{
+
+        font-size:1.65rem;
+
+        line-height:1.4;
+
+    }
+
+    .hero p{
+
+        margin-top:10px;
+
+        font-size:.9rem;
+
+        line-height:1.7;
+
+    }
+
+    /*==========================
+    KPI
+    ==========================*/
+
+    .kpi-card{
+
+        min-width:220px;
+
+        padding:18px;
+
+        gap:15px;
+
+    }
+
+    .kpi-card .icon{
+
+        width:55px;
+
+        height:55px;
+
+        font-size:1.2rem;
+
+    }
+
+    .kpi-card h2{
+
+        font-size:1.25rem;
+
+    }
+
+    .kpi-card span{
+
+        font-size:.85rem;
+
+    }
+
+    /*==========================
+    CARDS
+    ==========================*/
+
+    .card{
+
+        padding:18px;
+
+        border-radius:16px;
+
+    }
+
+    .card-header{
+
+        margin-bottom:18px;
+
+    }
+
+    .card-header h2{
+
+        font-size:1.15rem;
+
+    }
+
+    .card-header p{
+
+        font-size:.85rem;
+
+    }
+
+    /*==========================
+    FORM
+    ==========================*/
+
+    .input-group label{
+
+        font-size:.9rem;
+
+    }
+
+    .input-group input{
+
+        height:54px;
+
+        font-size:.95rem;
+
+        padding:0 15px;
+
+    }
+
+    .predict-btn{
+
+        height:54px;
+
+        font-size:.95rem;
+
+        border-radius:14px;
+
+    }
+
+    /*==========================
+    RESULT
+    ==========================*/
+
+    .prediction-result{
+
+        font-size:2.5rem;
+
+    }
+
+    .prediction-placeholder{
+
+        padding:20px 0;
+
+    }
+
+    .prediction-placeholder i{
+
+        font-size:2.8rem;
+
+    }
+
+    .prediction-placeholder h2{
+
+        font-size:1.2rem;
+
+    }
+
+    .prediction-placeholder p{
+
+        font-size:.9rem;
+
+    }
+
+    .recommendation{
+
+        padding:15px;
+
+        font-size:.9rem;
+
+    }
+
+    /*==========================
+    SUMMARY
+    ==========================*/
+
+    .summary-item{
+
+        font-size:.9rem;
+
+    }
+
+    .summary-item strong{
+
+        font-size:1rem;
+
+    }
+
+    /*==========================
+    ANALYTICS
+    ==========================*/
+
+    .progress-item{
+
+        gap:8px;
+
+        margin-bottom:20px;
+
+    }
+
+    .progress{
+
+        height:9px;
+
+    }
+
+    .confidence{
+
+        padding:14px;
+
+        font-size:.95rem;
+
+    }
+
+    /*==========================
+    MODEL
+    ==========================*/
+
+    .model-grid{
+
+        gap:12px;
+
+    }
+
+    .model-grid div{
+
+        padding:18px;
+
+    }
+
+    .model-grid h4{
+
+        font-size:1rem;
+
+    }
+
+    .model-grid p{
+
+        font-size:.9rem;
+
+    }
+
+    /*==========================
+    FOOTER
+    ==========================*/
+
+    footer{
+
+        padding:22px 15px;
+
+        font-size:.8rem;
+
+        line-height:1.6;
+
+    }
+
+}
+
+
+/*==================================================
+400px
+EXTRA SMALL DEVICES
+==================================================*/
+
+@media screen and (max-width:400px){
+
+    section{
+
+        width:94%;
+
+    }
+
+    .logo{
+
+        font-size:1rem;
+
+    }
+
+    .logo i{
+
+        font-size:1.2rem;
+
+    }
+
+    .notification{
+
+        width:36px;
+
+        height:36px;
+
+    }
+
+    .avatar{
+
+        width:36px;
+
+        height:36px;
+
+        font-size:.8rem;
+
+    }
+
+    .hero h1{
+
+        font-size:1.4rem;
+
+    }
+
+    .hero p{
+
+        font-size:.85rem;
+
+    }
+
+    .kpi-card{
+
+        min-width:200px;
+
+        padding:16px;
+
+    }
+
+    .kpi-card .icon{
+
+        width:48px;
+
+        height:48px;
+
+        font-size:1.05rem;
+
+    }
+
+    .kpi-card h2{
+
+        font-size:1.1rem;
+
+    }
+
+    .card{
+
+        padding:16px;
+
+    }
+
+    .prediction-result{
+
+        font-size:2rem;
+
+    }
+
+    .input-group input{
+
+        height:50px;
+
+        font-size:.9rem;
+
+    }
+
+    .predict-btn{
+
+        height:50px;
+
+        font-size:.9rem;
+
+    }
+
+    .recommendation{
+
+        font-size:.85rem;
+
+    }
+
+    .summary-item{
+
+        font-size:.85rem;
+
+    }
+
+    .confidence{
+
+        font-size:.85rem;
+
+    }
+
+}
+/*==================================================
+LANDSCAPE PHONES
+==================================================*/
+
+@media screen and (max-height:500px) and (orientation:landscape){
+
+    .hero{
+
+        padding:20px 0;
+
+    }
+
+    .hero h1{
+
+        font-size:1.8rem;
+
+    }
+
+    .hero p{
+
+        font-size:.9rem;
+
+    }
+
+    .kpi-section{
+
+        margin-bottom:20px;
+
+    }
+
+    .dashboard{
+
+        gap:20px;
+
+    }
+
+}
+
+
+/*==================================================
+KPI SMOOTH SCROLL
+==================================================*/
+
+.kpi-section{
+
+    scroll-behavior:smooth;
+
+    -webkit-overflow-scrolling:touch;
+
+}
+
+.kpi-card{
+
+    scroll-snap-align:start;
+
+}
+
+
+/*==================================================
+SMOOTH SCROLL
+==================================================*/
+
+html{
+
+    scroll-behavior:smooth;
+
+}
+
+
+/*==================================================
+PREVENT OVERFLOW
+==================================================*/
+
+html,
+body{
+
+    max-width:100%;
+
+    overflow-x:hidden;
+
+}
+
+img{
+
+    max-width:100%;
+
+    display:block;
+
+}
+
+table{
+
+    width:100%;
+
+    overflow-x:auto;
+
+}
+
+
+/*==================================================
+BUTTON IMPROVEMENTS
+==================================================*/
+
+.predict-btn{
+
+    transition:
+
+        background .3s,
+
+        transform .2s,
+
+        box-shadow .3s;
+
+}
+
+.predict-btn:hover{
+
+    box-shadow:
+
+        0 18px 35px rgba(37,99,235,.25);
+
+}
+
+.predict-btn:active{
+
+    transform:scale(.97);
+
+}
+
+
+/*==================================================
+INPUT IMPROVEMENTS
+==================================================*/
+
+.input-group input{
+
+    transition:
+
+        border-color .3s,
+
+        box-shadow .3s,
+
+        background .3s;
+
+}
+
+.input-group input:hover{
+
+    border-color:#CBD5E1;
+
+}
+
+
+/*==================================================
+CARD HOVER
+==================================================*/
+
+.card{
+
+    transition:
+
+        transform .3s,
+
+        box-shadow .3s;
+
+}
+
+.card:hover{
+
+    transform:translateY(-4px);
+
+}
+
+
+/*==================================================
+KPI HOVER
+==================================================*/
+
+.kpi-card{
+
+    transition:
+
+        transform .3s,
+
+        box-shadow .3s;
+
+}
+
+.kpi-card:hover{
+
+    transform:translateY(-6px);
+
+}
+
+
+/*==================================================
+MODEL CARD
+==================================================*/
+
+.model-grid div{
+
+    transition:
+
+        .3s;
+
+}
+
+.model-grid div:hover{
+
+    transform:translateY(-3px);
+
+}
+
+
+/*==================================================
+PROGRESS BAR
+==================================================*/
+
+.progress{
+
+    overflow:hidden;
+
+}
+
+.progress div{
+
+    transition:width .8s ease;
+
+}
+
+
+/*==================================================
+SELECTION
+==================================================*/
+
+::selection{
+
+    background:#2563EB;
+
+    color:#fff;
+
+}
+
+
+/*==================================================
+FOCUS ACCESSIBILITY
+==================================================*/
+
+button:focus,
+input:focus{
+
+    outline:none;
+
+}
+
+
+/*==================================================
+CUSTOM SCROLLBAR
+==================================================*/
+
+::-webkit-scrollbar{
+
+    width:10px;
+
+    height:8px;
+
+}
+
+::-webkit-scrollbar-track{
+
+    background:#F3F4F6;
+
+}
+
+::-webkit-scrollbar-thumb{
+
+    background:#CBD5E1;
+
+    border-radius:20px;
+
+}
+
+::-webkit-scrollbar-thumb:hover{
+
+    background:#94A3B8;
+
+}
+
+
+/*==================================================
+TOUCH DEVICES
+==================================================*/
+
+@media (hover:none){
+
+    .card:hover{
+
+        transform:none;
+
+    }
+
+    .kpi-card:hover{
+
+        transform:none;
+
+    }
+
+    .predict-btn:hover{
+
+        transform:none;
+
+    }
+
+}
+
+
+/*==================================================
+PRINT
+==================================================*/
+
+@media print{
+
+    .navbar,
+    .predict-btn,
+    footer{
+
+        display:none;
+
+    }
+
+    body{
+
+        background:#fff;
+
+    }
+
+    .card{
+
+        box-shadow:none;
+
+        border:1px solid #ddd;
+
+    }
+
+}
+/* Footer Responsive */
+
+@media (max-width:768px){
+
+    footer{
+
+        flex-direction:column;
+
+        text-align:center;
+
+        padding:25px 20px;
+
+    }
+
+    .footer-social{
+
+        justify-content:center;
+
+    }
+
+}
+
+
+/*==================================================
+END OF FILE
+==================================================*/

@@ -1,0 +1,558 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Sales Prediction Dashboard</title>
+
+    <!-- Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='responsive.css') }}">
+</head>
+
+<body>
+
+    <!-- ================= NAVBAR ================= -->
+
+<nav class="navbar">
+
+    <div class="logo">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <span>SalesPredict</span>
+
+    </div>
+
+    <!-- Search -->
+
+    <div class="search-box">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+            type="text"
+            placeholder="Search campaign..."
+            readonly>
+
+    </div>
+
+    <!-- Right -->
+
+    <div class="nav-right">
+
+        <div class="model-badge">
+
+            <i class="fa-solid fa-microchip"></i>
+
+            Extra Trees
+
+        </div>
+
+        <button class="notification">
+
+            <i class="fa-regular fa-bell"></i>
+
+        </button>
+
+        <div class="avatar">
+
+            KR
+
+        </div>
+
+    </div>
+
+</nav>
+
+    <!-- ================= HERO ================= -->
+
+    <section class="hero">
+
+        <div>
+
+            <h1 style="color:blue;"><i class="fa-solid fa-chart-line"></i>
+
+                SALES PREDICTION SYSTEM
+
+            </h1>
+
+            <p>
+
+                Forecast future product sales using advertising expenditure
+                across TV, Radio and Newspaper campaigns.
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= KPI CARDS ================= -->
+
+    <section class="kpi-section">
+
+        <div class="kpi-card">
+
+            <div class="icon blue">
+
+                <i class="fa-solid fa-bullseye"></i>
+
+            </div>
+
+            <div>
+
+                <span>Accuracy</span>
+
+                <h2>97.8%</h2>
+
+            </div>
+
+        </div>
+
+        <div class="kpi-card">
+
+            <div class="icon green">
+
+                <i class="fa-solid fa-database"></i>
+
+            </div>
+
+            <div>
+
+                <span>Dataset</span>
+
+                <h2>200 Rows</h2>
+
+            </div>
+
+        </div>
+
+        <div class="kpi-card">
+
+            <div class="icon orange">
+
+                <i class="fa-solid fa-robot"></i>
+
+            </div>
+
+            <div>
+
+                <span>Algorithm</span>
+
+                <h2>Extra Trees</h2>
+
+            </div>
+
+        </div>
+
+        <div class="kpi-card">
+
+            <div class="icon purple">
+
+                <i class="fa-solid fa-layer-group"></i>
+
+            </div>
+
+            <div>
+
+                <span>Features</span>
+
+                <h2>3 Inputs</h2>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MAIN GRID ================= -->
+
+    <section class="dashboard">
+
+        <!-- ================= FORM ================= -->
+
+        <div class="card prediction-form-card" id="prediction">
+
+            <div class="card-header">
+
+                <h2>
+
+                    Advertising Budget
+
+                </h2>
+
+                <p>
+
+                    Enter your campaign spending.
+
+                </p>
+
+            </div>
+
+            <form action="/predict" method="POST">
+
+                <div class="input-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-tv"></i>
+
+                        TV Advertisement
+
+                    </label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="TV"
+                        id="tv"
+                        value="{{ tv if tv is defined else '' }}"
+                        placeholder="Enter TV Budget"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-radio"></i>
+
+                        Radio Advertisement
+
+                    </label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="Radio"
+                        id="radio"
+                        value="{{ radio if radio is defined else '' }}"
+                        placeholder="Enter Radio Budget"
+                        required>
+
+                </div>
+
+                <div class="input-group">
+
+                    <label>
+
+                        <i class="fa-solid fa-newspaper"></i>
+
+                        Newspaper Advertisement
+
+                    </label>
+
+                    <input
+                        type="number"
+                        step="0.01"
+                        name="Newspaper"
+                        id="newspaper"
+                        value="{{ newspaper if newspaper is defined else '' }}"
+                        placeholder="Enter Newspaper Budget"
+                        required>
+
+                </div>
+
+                <button class="predict-btn">
+
+                    <i class="fa-solid fa-chart-column"></i>
+
+                    Predict Sales
+
+                </button>
+
+            </form>
+
+        </div>
+
+        <!-- ================= RESULT ================= -->
+
+        <div class="card prediction-card">
+
+            <div class="card-header">
+
+                <h2>
+
+                    Sales Forecast
+
+                </h2>
+
+                <p>
+
+                    Machine Learning Prediction
+
+                </p>
+
+            </div>
+
+            {% if prediction %}
+
+            <div class="prediction-result">
+
+                {{ prediction }}
+
+            </div>
+
+            {% if prediction|float >= 20 %}
+
+            <div class="status success">
+
+                Excellent Growth Expected
+
+            </div>
+
+            <div class="recommendation">
+
+                <i class="fa-solid fa-arrow-trend-up"></i>
+
+                Increase TV advertising for maximum returns.
+
+            </div>
+
+            {% elif prediction|float >= 12 %}
+
+            <div class="status warning">
+
+                Moderate Sales Forecast
+
+            </div>
+
+            <div class="recommendation">
+
+                <i class="fa-solid fa-lightbulb"></i>
+
+                Consider balancing TV and Radio campaigns.
+
+            </div>
+
+            {% else %}
+
+            <div class="status danger">
+
+                Low Sales Forecast
+
+            </div>
+
+            <div class="recommendation">
+
+                <i class="fa-solid fa-circle-exclamation"></i>
+
+                Increase advertising investment.
+
+            </div>
+
+            {% endif %}
+
+            {% else %}
+
+            <div class="prediction-placeholder">
+
+                <i class="fa-solid fa-chart-line"></i>
+
+                <h2>Ready to Predict</h2>
+
+                <p>
+
+                    Enter your advertising budget to generate a sales forecast.
+
+                </p>
+
+            </div>
+
+            {% endif %}
+
+            <div class="summary-box">
+
+                <div class="summary-item">
+
+                    <span>TV Budget</span>
+
+                    <strong id="summaryTV">$0</strong>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <span>Radio Budget</span>
+
+                    <strong id="summaryRadio">$0</strong>
+
+                </div>
+
+                <div class="summary-item">
+
+                    <span>Newspaper Budget</span>
+
+                    <strong id="summaryNews">$0</strong>
+
+                </div>
+
+            </div>
+        </div>
+
+    </section>
+
+    <!-- ================= ANALYTICS ================= -->
+
+    <section class="card analytics-card" id="analytics">
+
+        <div class="card-header">
+
+            <h2>
+
+                Live Budget Analytics
+
+            </h2>
+
+        </div>
+
+        <div class="progress-item">
+
+            <span>TV Advertisement</span>
+
+            <div class="progress">
+
+                <div id="tvBar"></div>
+
+            </div>
+
+            <strong id="tvPercent">0%</strong>
+
+        </div>
+
+        <div class="progress-item">
+
+            <span>Radio Advertisement</span>
+
+            <div class="progress">
+
+                <div id="radioBar"></div>
+
+            </div>
+
+            <strong id="radioPercent">0%</strong>
+
+        </div>
+
+        <div class="progress-item">
+
+            <span>Newspaper Advertisement</span>
+
+            <div class="progress">
+
+                <div id="newsBar"></div>
+
+            </div>
+
+            <strong id="newsPercent">0%</strong>
+
+        </div>
+        <div class="confidence">
+
+            <span>Confidence</span>
+
+            <strong>High</strong>
+
+        </div>
+
+    </section>
+
+    <!-- ================= MODEL INFO ================= -->
+
+    <section class="card model-card" id="model">
+
+        <div class="card-header">
+
+            <h2>
+
+                Model Information
+
+            </h2>
+
+        </div>
+
+        <div class="model-grid">
+
+            <div>
+
+                <h4>Algorithm</h4>
+
+                <p>Extra Trees Regressor</p>
+
+            </div>
+
+            <div>
+
+                <h4>Evaluation</h4>
+
+                <p>R², MAE, RMSE</p>
+
+            </div>
+
+            <div>
+
+                <h4>Validation</h4>
+
+                <p>5-Fold Cross Validation</p>
+
+            </div>
+
+            <div>
+
+                <h4>Deployment</h4>
+
+                <p>Flask + Render</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <div class="footer-brand">
+
+        <i class="fa-solid fa-chart-line"></i>
+
+        <span>Sales Prediction Dashboard</span>
+
+    </div>
+
+    <p>
+
+        © 2026 Sales Prediction Dashboard | Designed with 💙
+
+    </p>
+
+    <div class="footer-social">
+
+        <a href="#"><i class="fab fa-github"></i></a>
+
+    </div>
+
+</footer>
+
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+
+</body>
+
+</html>
